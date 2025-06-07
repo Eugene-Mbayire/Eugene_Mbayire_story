@@ -1,0 +1,31 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="authStyle1.css">
+</head>
+<body>
+  <div class="auth-box">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <input type="text" placeholder="Username" id="signupUsername" required>
+      <input type="password" placeholder="Password" id="signupPassword" required>
+      <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Login here</a>.</p>
+  </div>
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('signupUsername').value;
+      const password = document.getElementById('signupPassword').value;
+      localStorage.setItem('user', JSON.stringify({ username, password }));
+      alert('Signup successful! Please login.');
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
